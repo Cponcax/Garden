@@ -6,4 +6,11 @@ def self.categories_with_tips
   Tip.all
 end
 
+rails_admin do 
+	edit do 
+	exclude_fields :tip_images
+
+	end
+end
+
 end

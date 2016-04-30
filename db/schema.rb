@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426010622) do
+ActiveRecord::Schema.define(version: 20160430182845) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160426010622) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "family_images", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "url",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "family_id",  limit: 4
+  end
+
+  add_index "family_images", ["family_id"], name: "index_family_images_on_family_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -90,8 +100,10 @@ ActiveRecord::Schema.define(version: 20160426010622) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "position",    limit: 4
   end
 
+  add_foreign_key "family_images", "families"
   add_foreign_key "tip_images", "tips"
   add_foreign_key "tips", "categories"
   add_foreign_key "zone_families", "families"

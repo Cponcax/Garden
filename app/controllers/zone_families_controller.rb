@@ -47,6 +47,12 @@ class ZoneFamiliesController < ApplicationController
     head :no_content
   end
 
+   
+  def set_families
+    id = params[:id]
+
+  end
+
   private
 
     def set_zone_family

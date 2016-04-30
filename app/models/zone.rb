@@ -1,4 +1,18 @@
 class Zone < ActiveRecord::Base
   has_many :families, through: :zone_families
   has_many :zone_families
+
+ def self.get_famlies(position)
+  puts "POSITION"::  + position.inspect
+  zone = where("position=?",position)
+  zone.map {|z| z.families}
+    
+  end
+ 
+
+  rails_admin do 
+    edit do 
+      exclude_fields :families, :zone_families
+    end
+  end
 end
