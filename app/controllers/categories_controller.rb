@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
     category_id =  params[:id] 
     @category = Tip.where('category_id =?',category_id)
   
-    render json: @category
+    render json: @category, root: "tips"
   end
 
   private
