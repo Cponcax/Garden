@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423233342) do
+ActiveRecord::Schema.define(version: 20160426010622) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
     t.string   "banner_image_url", limit: 255
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.text     "description", limit: 65535
+    t.string   "banner",      limit: 255
+    t.string   "name",        limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "tip_images", force: :cascade do |t|
@@ -59,6 +74,26 @@ ActiveRecord::Schema.define(version: 20160423233342) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "zone_families", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "zone_id",    limit: 4
+    t.integer  "family_id",  limit: 4
+  end
+
+  add_index "zone_families", ["family_id"], name: "index_zone_families_on_family_id", using: :btree
+  add_index "zone_families", ["zone_id"], name: "index_zone_families_on_zone_id", using: :btree
+
+  create_table "zones", force: :cascade do |t|
+    t.string   "banner",      limit: 255
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   add_foreign_key "tip_images", "tips"
   add_foreign_key "tips", "categories"
+  add_foreign_key "zone_families", "families"
+  add_foreign_key "zone_families", "zones"
 end

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :tip_images, only: [:index, :show]
+  resources :zone_families
 
 end
