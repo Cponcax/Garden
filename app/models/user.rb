@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  rails_admin do 
+  rails_admin do
     
   end
 

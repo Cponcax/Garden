@@ -13,94 +13,90 @@
 
 ActiveRecord::Schema.define(version: 20160430182845) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.string   "banner_image_url", limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "name"
+    t.string   "banner_image_url"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "families", force: :cascade do |t|
-    t.text     "description", limit: 65535
-    t.string   "banner",      limit: 255
-    t.string   "name",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.string   "banner"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "family_images", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "url",        limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "family_id",  limit: 4
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "family_id"
   end
 
   add_index "family_images", ["family_id"], name: "index_family_images_on_family_id", using: :btree
 
-  create_table "images", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
   create_table "tip_images", force: :cascade do |t|
-    t.text     "description", limit: 65535
-    t.string   "url",         limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "tip_id",      limit: 4
-    t.string   "name",        limit: 255
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "tip_id"
+    t.string   "name"
   end
 
   add_index "tip_images", ["tip_id"], name: "index_tip_images_on_tip_id", using: :btree
 
   create_table "tips", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "category_id", limit: 4
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
 
   add_index "tips", ["category_id"], name: "index_tips_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "zone_families", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "zone_id",    limit: 4
-    t.integer  "family_id",  limit: 4
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "zone_id"
+    t.integer  "family_id"
   end
 
   add_index "zone_families", ["family_id"], name: "index_zone_families_on_family_id", using: :btree
   add_index "zone_families", ["zone_id"], name: "index_zone_families_on_zone_id", using: :btree
 
   create_table "zones", force: :cascade do |t|
-    t.string   "banner",      limit: 255
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "position",    limit: 4
+    t.string   "banner"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "position"
   end
 
   add_foreign_key "family_images", "families"

@@ -1,10 +1,13 @@
 class Category < ActiveRecord::Base
- has_many :tips 
+ has_many :tips
 
- rails_admin do 
-  edit do 
+ validates :name, presence: true
+ validates :banner_image_url, presence: true
+
+ rails_admin do
+  edit do
   exclude_fields :tips
-  end 
+  end
  end
 
 end
