@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  
+
   config.authenticate_with do
     warden.authenticate! scope: :user
   end
@@ -25,6 +25,36 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 #config.included_models = ["Zone"]
+
+  config.model 'Category' do
+    parent Tip
+    label "Categoria"
+    label_plural "Categorias"
+  end
+
+  config.model 'TipImage' do
+    parent Tip
+  end
+
+  config.model 'FamilyImage' do
+    parent Family
+  end
+
+  config.model 'Tip' do
+    navigation_label 'Tips'
+  end
+
+  config.model 'Family' do
+    parent Zone
+  end
+
+  config.model 'Zone' do
+
+  end
+
+
+
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
