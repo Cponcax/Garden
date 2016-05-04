@@ -47,7 +47,9 @@ class ZoneFamiliesController < ApplicationController
     head :no_content
   end
 
-   
+  api :GET, '/zone_families?position=4', 'Get families per position'
+  param :position,  Integer,  :desc => "Position to Zone" ,:required => true
+
   def set_families
     id = params[:id]
 

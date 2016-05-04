@@ -64,3 +64,5 @@ gem 'active_model_serializers'
 gem 'devise'
 
 gem 'ckeditor'
+
+gem 'apipie-rails'

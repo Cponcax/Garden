@@ -46,7 +46,9 @@ class FamiliesController < ApplicationController
 
     head :no_content
   end
-
+  
+  api :GET, '/family_info?name=Rosaceae', 'Get families per name'
+  param :name, String,  :desc => "Name of the Family" ,:required => true
   def get_name
 
     @name = Family.where("name=?", params[:name])
