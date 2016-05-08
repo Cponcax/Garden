@@ -4,13 +4,9 @@ es:
       family_image:
         one: Imagenes por familia
         other: Imagenes por familia
-      category:
-        one: Categoria
-        other: Categorias
       family:
         one: Familia de plantas
         other: Familias de plantas
-
       zone:
         one: Zonas
         other: Zonas
