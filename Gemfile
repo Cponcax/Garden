@@ -68,3 +68,5 @@ gem 'devise'
 gem 'ckeditor'
 
 gem 'apipie-rails'
+
+gem "validate_url"

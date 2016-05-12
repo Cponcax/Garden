@@ -4,7 +4,7 @@ class Family < ActiveRecord::Base
   has_many :family_images
 
   validates :description, presence: true
-  validates :banner, presence: true
+  validates :banner,:url => true, presence: true
   validates :name, presence: true
 
   rails_admin do
