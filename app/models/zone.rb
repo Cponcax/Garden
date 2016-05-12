@@ -15,7 +15,9 @@ class Zone < ActiveRecord::Base
 
   rails_admin do
     edit do
+      fields :name, :banner, :position, :description
       exclude_fields :families, :zone_families
+      field :description, :ck_editor
     end
   end
 end

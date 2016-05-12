@@ -1,18 +1,15 @@
 es:
   activerecord:
     models:
-      category: 
-        one: Categoria
-        other: Categorias
+      category:
+        one: Categoria de los tips
+        other: Categorias de los tips
       family_image:
         one: Imagenes por familia
         other: Imagenes por familia
       family:
         one: Familia de plantas
         other: Familias de plantas
-        name: "Nombre de la familia"
-        banner: "Url del Banner"
-        description: "Descripcion"
       zone:
         one: Zonas
         other: Zonas
@@ -22,6 +19,32 @@ es:
       tip_image:
         one: Imagenes por tip
         other: Imagenes por tip
+    attributes:
+      family:
+        name: "Nombre de la familia"
+        banner: "Url del Banner"
+        description: "Descripción"
+        zones: "Zona"
+      family_image:
+        name: "Nombre de la imagen"
+        url: "Url de la imagen"
+        family: "Familia"
+      tip:
+        description: "Descripción"
+        name: "Nombre"
+        category: "Categoria"
+      tip_image:
+        description: "Descripción"
+        name: "Nombre"
+        url: "Url del Banner"
+      category:
+        banner_image_url: "Url del Banner"
+        name: "Nombre de la categoria"
+      zone:
+        banner: "Url del Banner"
+        name: "Nombre de la zona"
+        description: "Descripción"
+        position: "Posición"
   datetime:
     distance_in_words:
       about_x_hours:

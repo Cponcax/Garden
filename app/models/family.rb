@@ -6,6 +6,7 @@ class Family < ActiveRecord::Base
   validates :description, presence: true
   validates :banner, presence: true
   validates :name, presence: true
+  validates :zones, presence: true
 
   rails_admin do
     edit do

@@ -52,11 +52,29 @@ RailsAdmin.config do |config|
 
   # end
 
+  # config.model 'Category' do
+  #   parent Tip
+  #   navigation_label 'League related'
+  # end
+  #
+  # config.model 'TipImage' do
+  #   parent Tip
+  # end
+
+  # config.model 'Zone' do
+  #   navigation_label 'Zonas'
+  #   parent Family
+  # end
+  #
+  # config.model 'FamilyImage' do
+  #   parent Zone
+  # end
+
 
 
 
   config.actions do
-    dashboard  do 
+    dashboard  do
       Category
       Tip
     end                  # mandatory
