@@ -10,6 +10,9 @@ es:
       family:
         one: Familia de plantas
         other: Familias de plantas
+        name: "Nombre de la familia"
+        banner: "Url del Banner"
+        description: "Descripcion"
       zone:
         one: Zonas
         other: Zonas
