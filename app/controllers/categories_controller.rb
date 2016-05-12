@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
   end
 
   api :GET, '/categories/1/tips', 'Get tips per categorpy'
-  param :id,  Integer,  :desc => "Id of the category" ,:required => true
+  param :id,  String,  :desc => "Id of the category" ,:required => true
 
   def set_tip
     category_id =  params[:id] 
