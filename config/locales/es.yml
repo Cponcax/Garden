@@ -1,6 +1,9 @@
 es:
   activerecord:
     models:
+      category: 
+        one: Categoria
+        other: Categorias
       family_image:
         one: Imagenes por familia
         other: Imagenes por familia

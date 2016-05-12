@@ -5,6 +5,7 @@ class Category < ActiveRecord::Base
  validates :banner_image_url, presence: true
 
  rails_admin do
+ 
   edit do
   exclude_fields :tips
   end

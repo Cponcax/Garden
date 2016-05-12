@@ -9,9 +9,10 @@ class Family < ActiveRecord::Base
 
   rails_admin do
     edit do
-
+      fields :name, :banner, :description, :zones
       exclude_fields :zone_families, :family_images
       field :description, :ck_editor
+
     end
   end
 end
