@@ -1,6 +1,6 @@
 class Zone < ActiveRecord::Base
   has_many :families, through: :zone_families
-  has_many :zone_families
+  has_many :zone_families,  dependent: :destroy
 
   validates :banner,:url => true, presence: true
   validates :name, presence: true
