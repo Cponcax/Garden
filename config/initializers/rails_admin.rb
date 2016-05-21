@@ -4,19 +4,18 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
-  
+
+  config.excluded_models << "ZoneFamily"
 
 
   
-  config.excluded_models = ["ZoneFamily"]
-  #config.main_app_name = ["Jardin", "Botanico"]
+  #config.excluded_models = ["ZoneFamily"]
+  config.main_app_name = ["Jardin", "Botanico"]
 
   
   config.actions do
-   
-    dashboard 
-
-    index                         # mandatory
+    dashboard         
+    index        
     new do
       except ['User']
     end
@@ -26,9 +25,5 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
   end
 end
